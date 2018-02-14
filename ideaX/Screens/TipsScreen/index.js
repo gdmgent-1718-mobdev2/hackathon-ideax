@@ -24,9 +24,8 @@ export default class TipsScreen extends React.Component {
                     <Card key={tip['title']}>
                         <CardItem>
                             <Body>
-                                <Text>
-                                    {tip['title']} - {tip['info']}
-                                </Text>
+                                <Text style={{fontWeight: 'bold'}}>{tip['title']}</Text>
+                                <Text>{tip['info']}</Text>
                             </Body>
                         </CardItem>
                     </Card>
