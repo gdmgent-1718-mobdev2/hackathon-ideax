@@ -1,32 +1,26 @@
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-import { DrawerNavigator } from 'react-navigation';
+import React, { Component } from "react";
+import Expo from "expo";
 
-// Import Screens
-import BlogScreen from './Screens/Blog';
-import TipsScreen from './Screens/Tips';
-import CalculatorScreen from './Screens/Calculator';
-
-// Drawer-navigation
-const Drawer = DrawerNavigator(
-  {
-    Tips:{
-      screen: TipsScreen
-    },
-    Blog:{
-      screen: BlogScreen
-    },
-    Calculator:{
-      screen: CalculatorScreen
-    }
-  },
-  {
-    initialRouteName: 'Tips',
-    drawerPosition: 'left',
-    contentOptions:{
-      activeTintColor:'blue',
-    }
+import HomeScreen from "./Screens/HomeScreen/index.js";
+export default class AwesomeApp extends Component {
+  constructor() {
+    super();
+    this.state = {
+      isReady: false
+    };
   }
-)
-
-export default Drawer;
+  async componentWillMount() {
+    await Expo.Font.loadAsync({
+      Roboto: require("native-base/Fonts/Roboto.ttf"),
+      Roboto_medium: require("native-base/Fonts/Roboto_medium.ttf"),
+      Ionicons: require("native-base/Fonts/Ionicons.ttf")
+    });
+    this.setState({ isReady: true });
+  }
+  render() {
+    if (!this.state.isReady) {
+      return <Expo.AppLoading />;
+    }
+    return <HomeScreen />;
+  }
+}
