@@ -1,23 +1,32 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import { DrawerNavigator } from 'react-navigation';
 
-export default class App extends React.Component {
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text>Open up App.js to start working on your app!</Text>
-        <Text>Changes you make will automatically reload.</Text>
-        <Text>Shake your phone to open the developer menu.</Text>
-      </View>
-    );
-  }
-}
+// Import Screens
+import BlogScreen from './Screens/Blog';
+import TipsScreen from './Screens/Tips';
+import CalculatorScreen from './Screens/Calculator';
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+// Drawer-navigation
+const DrawerTest = DrawerNavigator(
+  {
+    Tips:{
+      screen: TipsScreen
+    },
+    Blog:{
+      screen: BlogScreen
+    },
+    Calculator:{
+      screen: CalculatorScreen
+    }
   },
-});
+  {
+    initialRouteName: 'Blog',
+    drawerPosition: 'left',
+    contentOptions:{
+      activeTintColor:'blue',
+    }
+  }
+)
+
+export default DrawerTest;
