@@ -8,7 +8,7 @@ import TipsScreen from './Screens/Tips';
 import CalculatorScreen from './Screens/Calculator';
 
 // Drawer-navigation
-const DrawerTest = DrawerNavigator(
+const Drawer = DrawerNavigator(
   {
     Tips:{
       screen: TipsScreen
@@ -21,7 +21,7 @@ const DrawerTest = DrawerNavigator(
     }
   },
   {
-    initialRouteName: 'Blog',
+    initialRouteName: 'Tips',
     drawerPosition: 'left',
     contentOptions:{
       activeTintColor:'blue',
@@ -29,4 +29,4 @@ const DrawerTest = DrawerNavigator(
   }
 )
 
-export default DrawerTest;
+export default Drawer;

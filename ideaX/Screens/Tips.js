@@ -1,8 +1,17 @@
 import React from 'react';
 import { Text, View, Button, Image, StyleSheet } from 'react-native';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
+import firebase from '../Utils/firebaseConfig';
+import { getData } from '../Utils/firebaseFunctions';
+
 
 export default class TipsScreen extends React.Component{
+    constructor(){
+        super();
+        this.state = {
+            Tips: '',
+        }
+    }
     static navigationOptions = {
         tableBarLabel: 'Tips',
         drawerIcon: ({tintColor}) =>{
@@ -15,6 +24,13 @@ export default class TipsScreen extends React.Component{
                 </MaterialIcons>
             );
         }
+    }
+    componentWillMount(){
+        const Tips = firebase.database().ref('Tips');
+        Tips.on('value', (snapshot) => {
+        this.setState({ Tips: snapshot.val() });
+        console.log(this.state.Tips);
+    }) 
     }
     render(){
         return(
