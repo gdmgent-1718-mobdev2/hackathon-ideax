@@ -3,6 +3,9 @@ import { StatusBar } from "react-native";
 import { Button, Text, Container, Card, CardItem, Body, Content, Header, Title, Left, Icon, Right} from "native-base";
 import firebase from '../../Utils/FirebaseConfig.js';
 
+// Stylesheet
+styles = require('../../Assets/styles.js');
+
 export default class TipsScreen extends React.Component {
     constructor() {
         super();
@@ -24,7 +27,7 @@ export default class TipsScreen extends React.Component {
                     <Card key={tip['title']}>
                         <CardItem>
                             <Body>
-                                <Text style={{fontWeight: 'bold'}}>{tip['title']}</Text>
+                                <Text style={styles.boldText}>{tip['title']}</Text>
                                 <Text>{tip['info']}</Text>
                             </Body>
                         </CardItem>

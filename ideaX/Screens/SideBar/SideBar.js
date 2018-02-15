@@ -2,6 +2,9 @@ import React from "react";
 import { AppRegistry, Image, StatusBar } from "react-native";
 import {Button, Text, Container, List, ListItem, Content, Icon } from "native-base";
 
+// Stylesheet
+styles = require('../../Assets/styles.js');
+
 const routes = ["Home","Tips","Blog","Profile"];
 export default class SideBar extends React.Component {
   render() {
@@ -13,22 +16,11 @@ export default class SideBar extends React.Component {
               uri:
                 "https://raw.githubusercontent.com/GeekyAnts/NativeBase-KitchenSink/master/assets/drawer-cover.png"
             }}
-            style={{
-              height: 120,
-              width: "100%",
-              alignSelf: "stretch",
-              position: "absolute"
-            }}
+            style={styles.backImg}
           />
           <Image
             square
-            style={{
-              height: 80,
-              width: 70,
-              position: "absolute",
-              alignSelf: "center",
-              top: 20
-            }}
+            style={styles.frontImg}
             source={{
               uri:
                 "https://raw.githubusercontent.com/GeekyAnts/NativeBase-KitchenSink/master/assets/logo.png"
@@ -36,13 +28,12 @@ export default class SideBar extends React.Component {
           />
           <List
             dataArray={routes}
-            contentContainerStyle={{ marginTop: 120 }}
+            contentContainerStyle={styles.listMargin}
             renderRow={data => {
               return (
                 <ListItem
                   button
-                  onPress={() => this.props.navigation.navigate(data)}
-                >
+                  onPress={() => this.props.navigation.navigate(data)}>
                   <Text>{data}</Text>
                 </ListItem>
               );
