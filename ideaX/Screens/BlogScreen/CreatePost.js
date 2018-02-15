@@ -1,5 +1,5 @@
 import React from "react";
-import { StatusBar, TextInput } from "react-native";
+import { StatusBar, TextInput, Alert } from "react-native";
 import { Button, Text, Container, Body, Content, Header, Title, Left, Icon, Right, Form, Item, Input, Label } from "native-base";
 import firebase from '../../Utils/FirebaseConfig.js';
 
@@ -34,6 +34,9 @@ export default class CreatePost extends React.Component {
         firebase.database().ref('BlogPosts').push(Post);
         this.TextTitle.setNativeProps({text: ''});
         this.TextBody.setNativeProps({text: ''});
+        Alert.alert(
+            'Post created'
+         )
     }
     render() {
         return (
