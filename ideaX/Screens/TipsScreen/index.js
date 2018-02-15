@@ -36,7 +36,7 @@ export default class TipsScreen extends React.Component {
             })
         }
         return (
-            <Container>
+            <Container >
                 <Header>
                     <Left>
                         <Button
@@ -50,7 +50,7 @@ export default class TipsScreen extends React.Component {
                     </Body>
                     <Right />
                 </Header>
-                <Content>
+                <Content style={{flex: 1, margin:12}}>
                     {tips}
                 </Content>
             </Container>

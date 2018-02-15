@@ -4,9 +4,9 @@ import { Button, Text, Container, Body, Content, Header, Title, Left, Icon, Righ
 import firebase from '../../Utils/FirebaseConfig.js';
 
 export default class CreatePost extends React.Component {
-    constructor(){
+    constructor() {
         super();
-        this.state={
+        this.state = {
             blogTitle: "",
             blogBody: ""
         }
@@ -26,17 +26,17 @@ export default class CreatePost extends React.Component {
             </Header>
         )
     });
-    addPost(){
+    addPost() {
         const Post = {
             "title": this.state.blogTitle,
             "body": this.state.blogBody
         }
         firebase.database().ref('BlogPosts').push(Post);
-        this.TextTitle.setNativeProps({text: ''});
-        this.TextBody.setNativeProps({text: ''});
+        this.TextTitle.setNativeProps({ text: '' });
+        this.TextBody.setNativeProps({ text: '' });
         Alert.alert(
             'Post created'
-         )
+        )
     }
     render() {
         return (
@@ -45,20 +45,23 @@ export default class CreatePost extends React.Component {
                     <Form>
                         <Item stackedLabel>
                             <Label>Titel</Label>
-                            <Input 
-                            onChangeText={(text) => this.setState({blogTitle: text})} value={this.state.blogTitle}
-                            ref={ component => this.TextTitle = component }
+                            <Input
+                                onChangeText={(text) => this.setState({ blogTitle: text })} value={this.state.blogTitle}
+                                ref={component => this.TextTitle = component}
                             />
                         </Item>
                         <Item stackedLabel>
                             <Label>Body</Label>
-                            <Input 
-                            onChangeText={(text) => this.setState({blogBody: text})} value={this.state.blogBody}
-                            ref={ component => this.TextBody = component }
+                            <Input
+                                onChangeText={(text) => this.setState({ blogBody: text })} value={this.state.blogBody}
+                                ref={component => this.TextBody = component}
                             />
                         </Item>
                         <Button
-                        onPress={() => this.addPost()}
+                            primary
+                            full
+                            style={{ margin: 10 }}
+                            onPress={() => this.addPost()}
                         >
                             <Text>Create</Text>
                         </Button>

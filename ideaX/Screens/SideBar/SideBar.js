@@ -21,10 +21,9 @@ export default class SideBar extends React.Component {
           <Image
             square
             style={styles.frontImg}
-            source={{
-              uri:
-                "https://raw.githubusercontent.com/GeekyAnts/NativeBase-KitchenSink/master/assets/logo.png"
-            }}
+            source={
+              require("../../Assets/logo.png")
+            }
           />
           <List
             dataArray={routes}

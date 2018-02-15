@@ -9,11 +9,11 @@ module.exports = StyleSheet.create({
         position: "absolute",
     }, 
     frontImg:{
-        height: 80,
+        height: 100,
         width: 70,
         position: "absolute",
         alignSelf: "center",
-        top: 20,
+        top: 10,
     },
     listMargin:{ 
         marginTop: 120, 

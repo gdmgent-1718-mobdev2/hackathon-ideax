@@ -44,9 +44,12 @@ export default class PostOverview extends React.Component {
             id = 0;
         }
         return (
-            <Container>
+            <Container style={{flex: 1, margin:12}}>
                 <Content>
                     <Button
+                    primary
+                    full
+                    style={{ marginBottom: 5 }}
                         onPress={() => this.props.navigation.navigate("CreatePost")}>
                         <Text><Icon name='create' style={{ color: 'white' }} />Add Post</Text>
                     </Button>
