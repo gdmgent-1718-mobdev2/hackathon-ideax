@@ -1,38 +1,18 @@
-import React from "react";
-import { StatusBar } from "react-native";
-import {
-    Button,
-    Text,
-    Container,
-    Card,
-    CardItem,
-    Body,
-    Content,
-    Header,
-    Title,
-    Left,
-    Icon,
-    Right
-} from "native-base";
+import React, { Component } from "react";
+import { StackNavigator } from "react-navigation";
 
-export default class HomeScreen extends React.Component {
-    render() {
-        return (
-            <Container>
-                <Header>
-                    <Left>
-                        <Button
-                            transparent
-                            onPress={() => this.props.navigation.navigate("DrawerOpen")}>
-                            <Icon name="menu" />
-                        </Button>
-                    </Left>
-                    <Body>
-                        <Title>Blog</Title>
-                    </Body>
-                    <Right />
-                </Header>
-            </Container>
-        );
-    }
-}
+// Screens
+import PostOverview from './PostOverview';
+import CreatePost from './CreatePost';
+
+export default (DrawNav = StackNavigator(
+  {
+    PostOverview: { screen: PostOverview },
+    CreatePost: { screen: CreatePost }
+  },
+  {
+    initialRouteName: "PostOverview"
+  }
+));
+
+
