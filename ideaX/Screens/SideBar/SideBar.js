@@ -5,7 +5,7 @@ import {Button, Text, Container, List, ListItem, Content, Icon } from "native-ba
 // Stylesheet
 styles = require('../../Assets/styles.js');
 
-const routes = ["Home","Tips","Blog","Profile"];
+const routes = ["Home","Tips","Blog","Profile","Login"];
 export default class SideBar extends React.Component {
   render() {
     return (

@@ -1,7 +1,7 @@
 import React from "react";
 import { StatusBar } from "react-native";
 import { Button, Text, Container, Card, CardItem, Body, Content, Header, Title, Left, Icon, Right} from "native-base";
-import firebase from '../../Utils/FirebaseConfig.js';
+import firebaseApp from '../../Utils/firebaseConfig.js';
 
 // Stylesheet
 styles = require('../../Assets/styles.js');
@@ -14,7 +14,7 @@ export default class TipsScreen extends React.Component {
         }
     }
     componentWillMount() {
-        const Tips = firebase.database().ref('Tips');
+        const Tips = firebaseApp.database().ref('Tips');
         Tips.on('value', (snapshot) => {
             this.setState({ Tips: snapshot.val() });
         })

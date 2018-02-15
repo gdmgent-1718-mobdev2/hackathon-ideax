@@ -1,13 +1,26 @@
 import React, { Component } from "react";
-import Expo from "expo";
+import { StyleSheet, Text, View, AppRegistry } from 'react-native';
+import { DrawerNavigator } from 'react-navigation';
+import Loading from './Components/Loading';
+import firebaseApp from './Utils/firebaseConfig';
 
 import HomeScreen from "./Screens/HomeScreen/index.js";
+import Login from './Screens/Login';
 export default class AwesomeApp extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
-      isReady: false
+      loading: true,
+      isLoggedIn: false
     };
+    this.users = this.getRef().child('users');
+  }
+  onChange = (isLoggedIn) => {
+    console.log(`Data changes to ${isLoggedIn} !`);
+    this.setState({ isLoggedIn });
+  }
+  getRef() {
+    return firebaseApp.database().ref();
   }
   async componentWillMount() {
     await Expo.Font.loadAsync({
@@ -15,12 +28,18 @@ export default class AwesomeApp extends Component {
       Roboto_medium: require("native-base/Fonts/Roboto_medium.ttf"),
       Ionicons: require("native-base/Fonts/Ionicons.ttf")
     });
-    this.setState({ isReady: true });
+    this.setState({ loading: false });
   }
   render() {
-    if (!this.state.isReady) {
-      return <Expo.AppLoading />;
+    const { isLoggedIn } = this.state;
+    if (this.state.loading) {
+      return <Loading />;
     }
-    return <HomeScreen />;
+    if(this.state.isLoggedIn) {
+      return <Login isLoggedIn={isLoggedIn} onChange={this.onChange} />
+    }
+    else {
+      return <HomeScreen />
+    }
   }
 }

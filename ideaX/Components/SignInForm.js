@@ -3,14 +3,8 @@ import { View, Text, Button } from 'react-native';
 import firebase from 'firebase';
 import TextFieldInput from './TextFieldInput';
 import style from '../Assets/style';
-import {
-    StackNavigator,
-  } from 'react-navigation';
 
 class SignInForm extends Component {
-    static navigationOptions = {
-        title: 'Welcome',
-    };
     state = { email: '', password: '', error: '', loading: false };
     onSignInPress() {
         this.setState({ error: '', loading: true });
