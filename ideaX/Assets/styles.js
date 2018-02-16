@@ -20,5 +20,9 @@ module.exports = StyleSheet.create({
     },
     boldText:{
         fontWeight: 'bold',
-    }
+    },
+    boldCenteredText:{
+        fontWeight: 'bold',  
+    },
+
 }); 
