@@ -7,7 +7,7 @@ module.exports = StyleSheet.create({
         width: "100%",
         alignSelf: "stretch",
         position: "absolute",
-    }, 
+    },
     frontImg:{
         height: 100,
         width: 70,
@@ -15,14 +15,11 @@ module.exports = StyleSheet.create({
         alignSelf: "center",
         top: 10,
     },
-    listMargin:{ 
-        marginTop: 120, 
+    listMargin:{
+        marginTop: 120,
     },
     boldText:{
         fontWeight: 'bold',
-    },
-    boldCenteredText:{
-        fontWeight: 'bold',  
-    },
+    }
+});
 
-}); 

@@ -1,7 +1,7 @@
 import React from "react";
 import { StatusBar } from "react-native";
 import { Button, Text, Container, Card, CardItem, Body, Content, Header, Title, Left, Icon, Right } from "native-base";
-import firebase from '../../Utils/FirebaseConfig.js';
+import firebaseApp from '../../Utils/firebaseConfig.js';
 
 export default class PostOverview extends React.Component {
     constructor() {
@@ -14,7 +14,7 @@ export default class PostOverview extends React.Component {
         title: 'Welcome',
     };
     componentWillMount() {
-        const Posts = firebase.database().ref('BlogPosts');
+        const Posts = firebaseApp.database().ref('BlogPosts');
         Posts.on('value', (snapshot) => {
             this.setState({ Posts: snapshot.val() });
         })

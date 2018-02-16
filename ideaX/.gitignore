@@ -5,6 +5,9 @@
 
 # dependencies
 /node_modules
+/Utils/firebaseConfig.js
+package-lock.json
+yarn.lock
 
 # misc
 .env.local

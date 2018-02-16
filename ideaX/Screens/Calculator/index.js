@@ -1,7 +1,7 @@
 import React from "react";
 import { StatusBar } from "react-native";
 import { Button, Text, Container, Card, CardItem, Body, Content, Header, Title, Left, Icon, Right } from "native-base";
-import firebase from '../../Utils/FirebaseConfig.js';
+import firebaseApp from '../../Utils/firebaseConfig.js';
 
 // Stylesheet
 styles = require('../../Assets/styles.js');
@@ -16,14 +16,17 @@ export default class CalcScreen extends React.Component {
         }
     }
     componentWillMount() {
-        const calc = firebase.database().ref('Calculator');
+        const calc = firebaseApp.database().ref('Calculator');
         calc.on('value', (snapshot) => {
             this.setState({ Data: snapshot.val() });
         })
     }
     render() {
+        let maand_1 = <Text></Text>;
+        let maand_2 = <Text></Text>;
         let save = 'saved';
         let waterML = 'more';
+        
         if (this.state.Data != 0) {
             this.state.waterDif = this.state.Data['maand 1']['water'] - this.state.Data['maand 2']['water'];
             this.state.costDif = this.state.Data['maand 1']['Cost'] - this.state.Data['maand 2']['Cost'];
@@ -35,7 +38,10 @@ export default class CalcScreen extends React.Component {
                 save = 'payed more'
                 waterML = 'more'
             }
+            maand_1 = <Text>Two months ago you used {this.state.Data['maand 1']['water']} liter water and you payed € {this.state.Data['maand 1']['Cost']}</Text>
+            maand_2 = <Text>Last month you used {this.state.Data['maand 2']['water']} liter water and you payed € {this.state.Data['maand 2']['Cost']}</Text>
         }
+        
         return (
             <Container >
                 <Header>
@@ -55,14 +61,14 @@ export default class CalcScreen extends React.Component {
                     <Card>
                         <CardItem>
                             <Body>
-                                <Text>Two months ago you used {this.state.Data['maand 1']['water']} liter water and you payed € {this.state.Data['maand 1']['Cost']}</Text>
+                                {maand_1}
                             </Body>
                         </CardItem>
                     </Card>
                     <Card>
                         <CardItem>
                             <Body>
-                                <Text>Last month you used {this.state.Data['maand 2']['water']} liter water and you payed € {this.state.Data['maand 2']['Cost']}</Text>
+                                {maand_2}
                             </Body>
                         </CardItem>
                     </Card>
