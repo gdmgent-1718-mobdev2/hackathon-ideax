@@ -1,12 +1,13 @@
 # hackathon-ideax
+
 Groepsnaam: IdeaX
 
 Groepsleden:
 
-Lars Follet         - Firebase developer
-Pieter Vleminckx    - Firebase developer
-Quinten Leysen  	- Projectmanager
-Thor Boonaert       - Designer
+* Lars Follet         	- Firebase developer
+* Pieter Vleminckx    	- Firebase developer
+* Quinten Leysen  	- Projectmanager
+* Thor Boonaert       	- Designer
 
 Alle groepsleden zijn React Native developers.
 
