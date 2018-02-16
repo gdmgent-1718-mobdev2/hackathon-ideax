@@ -11,6 +11,6 @@ Groepsleden:
 
 Alle groepsleden zijn React Native developers.
 
-Samenvatting:
+## Project
 
 Een app voor waterverbruik en waterrekeningen te verminderen. Aan de hand van tips en tricks, op een sociaal platform.
