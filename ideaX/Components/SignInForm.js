@@ -21,21 +21,17 @@ class SignInForm extends Component {
         firebaseApp.auth().signInWithEmailAndPassword(email, password)
             .then(() => {
                 this.setState({ error: '', loading: false });
+                /*
                 console.log('check');
-                return navigate('Home');
+                */
+               /*
+                return this.props.navigation.navigate('Home');
+                */
+                
             })
             .catch(() => {
                 console.log('error');
-                // App.auth().createUserWithEmailAndPassword(email, password)
-                //     .then(() => {
-                //         console.log('check2');
-                //         this.setState({ error: '', loading: false });
-                //         return navigate('Home');
-                //     })
-                //     .catch(() => {
-                //         console.log('error2');
-                        this.setState({ error: 'Authentication failed.', loading: false });
-                    // });
+                this.setState({ error: 'Authentication failed.', loading: false });
             });
     }
     renderButtonOrLoading() {

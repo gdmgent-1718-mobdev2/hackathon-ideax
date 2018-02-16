@@ -36,11 +36,14 @@ export default class AwesomeApp extends Component {
     if (this.state.loading) {
       return <Loading />;
     }
+    return <HomeScreen />
+    /*
     if(this.state.isLoggedIn == false) {
       return <Login isLoggedIn={isLoggedIn} onChange={this.onChange} />
     }
     else {
-      return <HomeScreen />
+      
     }
+    */
   }
 }

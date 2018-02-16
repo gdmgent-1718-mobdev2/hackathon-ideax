@@ -1,7 +1,7 @@
 import React from "react";
 import { StatusBar, TextInput, Alert } from "react-native";
 import { Button, Text, Container, Body, Content, Header, Title, Left, Icon, Right, Form, Item, Input, Label } from "native-base";
-
+import firebaseApp from '../../Utils/firebaseConfig.js';
 
 export default class CreatePost extends React.Component {
     constructor() {
