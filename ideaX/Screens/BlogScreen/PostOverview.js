@@ -44,8 +44,22 @@ export default class PostOverview extends React.Component {
             id = 0;
         }
         return (
-            <Container style={{flex: 1, margin:12}}>
-                <Content>
+            <Container>
+                <Header>
+                    <Left>
+                        <Button
+                        transparent
+                        onPress={() => this.props.navigation.navigate("DrawerOpen")}
+                        >
+                        <Icon name="menu" />
+                        </Button>
+                    </Left>
+                    <Body>
+                    <Title>Blog</Title>
+                    </Body>
+                    <Right />
+                </Header>
+                <Content style={{flex: 1, margin:12}}>
                     <Button
                     primary
                     full

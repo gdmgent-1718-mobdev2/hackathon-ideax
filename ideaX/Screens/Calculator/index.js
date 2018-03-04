@@ -26,7 +26,7 @@ export default class CalcScreen extends React.Component {
         let maand_2 = <Text></Text>;
         let save = 'saved';
         let waterML = 'more';
-        
+
         if (this.state.Data != 0) {
             this.state.waterDif = this.state.Data['maand 1']['water'] - this.state.Data['maand 2']['water'];
             this.state.costDif = this.state.Data['maand 1']['Cost'] - this.state.Data['maand 2']['Cost'];
@@ -41,7 +41,7 @@ export default class CalcScreen extends React.Component {
             maand_1 = <Text>Two months ago you used {this.state.Data['maand 1']['water']} liter water and you payed € {this.state.Data['maand 1']['Cost']}</Text>
             maand_2 = <Text>Last month you used {this.state.Data['maand 2']['water']} liter water and you payed € {this.state.Data['maand 2']['Cost']}</Text>
         }
-        
+
         return (
             <Container >
                 <Header>

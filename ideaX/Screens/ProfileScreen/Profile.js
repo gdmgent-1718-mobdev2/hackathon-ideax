@@ -30,6 +30,20 @@ export default class Profile extends React.Component {
   render() {
     return (
       <Container>
+          <Header>
+            <Left>
+                <Button
+                transparent
+                onPress={() => this.props.navigation.navigate("DrawerOpen")}
+                >
+                <Icon name="menu" />
+                </Button>
+            </Left>
+            <Body>
+            <Title>Profile</Title>
+            </Body>
+            <Right />
+        </Header>
         <Content padder>
           <Card>
             <CardItem>

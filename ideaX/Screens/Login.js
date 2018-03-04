@@ -1,21 +1,15 @@
 import React, { Component } from 'react';
+import LoginForm from '../Components/LoginForm';
+import HomeScreen from "../Screens/HomeScreen/HomeScreen";
 import {
-    AppRegistry,
-    StyleSheet,
-    Text,
-    View
-  } from 'react-native';
-import SignInForm from '../Components/SignInForm';
+    StackNavigator,
+  } from 'react-navigation';
 
-export default class Login extends Component {
+export default class LoginScreen extends Component {
     render() {
-        const { isLoggedIn } = this.props;
+        // const { navigate } = this.props.navigation;
         return (
-          <View>
-            <SignInForm isLoggedIn={isLoggedIn} />
-          </View>
+            <LoginForm />
         );
     }
 }
-
-// AppRegistry.registerComponent('Login', () => Login);
